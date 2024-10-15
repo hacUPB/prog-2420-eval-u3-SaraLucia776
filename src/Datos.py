@@ -45,7 +45,7 @@ def habito_completado(nombre_habito, tiempo:int):
                if habito["nombre_habito"] == nombre_habito: 
                     habito["fecha"] = fecha
                     habito["tiempo"] = tiempo 
-                    print(f"Hábito '{nombre_habito}' registrado el día {fecha} con una duración de {tiempo}.")
+                    print(f"Hábito '{nombre_habito}' registrado el día {fecha} con una duración de {tiempo} minutos.")
                     hab_list = True
                     break
      if not hab_list:
@@ -68,7 +68,7 @@ def ver_habitos():
      for habito in lista_habitos:
           print(f"Hábito: {habito['nombre_habito']}, Días: {habito['dias']}, Tiempo: {habito['tiempo']} minutos")
           
-     
+# Correcciones hechas con ayuda de chat gpt y copilot     
                           
 if __name__ == "__main__":
  datos_usuario()

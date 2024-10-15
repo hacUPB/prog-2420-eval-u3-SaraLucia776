@@ -59,7 +59,39 @@ Inicio
       Escribir ("Hábito agregado correctamente")
     Fin Funcion 
 
-    
+    Funcion habito _completado():
+     fecha = escribir "Ingrese la fecha de cuando realizó el hábito (DD/MM/AAAA)
+     hab_list = False 
+     Para habito en lista_habitos hacer 
+         Si habito["nombre_habito"] = nombre_habito entonces 
+                habito["fecha"] = fecha 
+                habito["tiempo"] = tiempo
+                Escribir ("Hábito {nombre_habito} registrado el día {fecha} con una duración de {tiempo} minutos")
+                hab_list = True 
+                break 
+           Fin Si
+       Fin Para
+     Si no hab_list entonces 
+         Escribir ("Hábito no registrado")
+      Fin Si 
+   Fin Funcion
 
-            
-        
+   Funcion habito_delete(nombre_habito)
+        Para habito en lista hacer 
+        Si habito["nombre_habito"] = nombre habito entonces 
+            remover habito de lista_habitos
+            Escribir ("Hábito {nombre_habito} eliminado")
+            Fin Si 
+        Fin Para 
+        Escribir ("Hábito no encontrado")
+    Fin Funcion
+
+    Funcion ver_habitos()
+     Si no lista_habitos entonces 
+         Escribir ("No hay hábtos agregados")    
+         return 
+       Fin Si 
+      Para habito en lista_habitos hacer 
+         Escribir ("Hábito: {habito['nombre_habito']}, Días: {habito['dias']}, Tiempo: {habito['tiempo']} minutos")
+        Fin Para
+    Fin Funcion
