@@ -95,3 +95,5 @@ Inicio
          Escribir ("Hábito: {habito['nombre_habito']}, Días: {habito['dias']}, Tiempo: {habito['tiempo']} minutos")
         Fin Para
     Fin Funcion
+
+    El código original tiene cambios respecto al pseudocódigo planteado inicialmente
