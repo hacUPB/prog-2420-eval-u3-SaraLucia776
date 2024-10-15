@@ -39,26 +39,22 @@ def agregar_habito():
 
 # Función para marcar un hábito completado
 def habito_completado(nombre_habito, tiempo:int):
-     fecha = (input("Ingrese la fecha de cuando realizó el hábito (DD/MM/AAAA): "))
-     hab_list = False 
-     for habito in lista_habitos:
-               if habito["nombre_habito"] == nombre_habito: 
-                    habito["fecha"] = fecha
-                    habito["tiempo"] = tiempo 
-                    print(f"Hábito '{nombre_habito}' registrado el día {fecha} con una duración de {tiempo} minutos.")
-                    hab_list = True
-                    break
-     if not hab_list:
-        print("Hábito no registrado")
+     if not lista_habitos:
+          print("No hay hábtos compeltados")
+          return 
+     print("Habitos por completar:")
+     for i, habito in enumerate(lista_habitos, 1):
+       print(f"{i}. {habito['nombre_habito']}")
 
-# Función para eliminar hábitos
-def habito_delete(nombre_habito):
-     for habito in lista_habitos:
-          if habito["nombre_habito"] == nombre_habito:
-           lista_habitos.remove(habito)
-           print(f"Hábito '{nombre_habito}' eliminado")
-           return 
-     print(f"Hábito no encontrado")
+     opcion = int(input("Elija el número del hábito completado: ")) - 1
+     if 0 <= opcion < len(lista_habitos):
+        tiempo = int(input("Ingrese el tiempo dedicado a este hábito (en minutos): "))
+        fecha = input("Ingrese la fecha de cuando realizó el hábito (DD/MM/AAAA): ")
+
+        lista_habitos[opcion].update({"fecha": fecha, "tiempo": tiempo})
+        print(f"Hábito '{lista_habitos[opcion]['nombre_habito']}' registrado el día {fecha} con una duración de {tiempo} minutos.")
+     else:
+        print("Opción no válida.")   
 
 # Función para visualizar los hábitos
 def ver_habitos():
@@ -67,6 +63,15 @@ def ver_habitos():
                return
      for habito in lista_habitos:
           print(f"Hábito: {habito['nombre_habito']}, Días: {habito['dias']}, Tiempo: {habito['tiempo']} minutos")
+
+# Función para eliminar hábitos
+def habito_delete(nombre_habito):
+     for i in range(len(lista_habitos)):
+          if lista_habitos[i]["nombre_habito"] == nombre_habito:
+           del lista_habitos[i]
+           print(f"Hábito '{nombre_habito}' eliminado")
+           return 
+     print(f"Hábito no encontrado")
           
 # Correcciones hechas con ayuda de chat gpt y copilot     
                           
